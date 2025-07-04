@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://j86laoguwft"]
+
+[ext_resource type="Script" uid="uid://bfr5qi3jli27r" path="res://scenes/main_character.gd" id="1_ig48j"]
+[ext_resource type="Texture2D" uid="uid://c6a8tpbb2bjrq" path="res://scenes/Jump (32x32).png" id="1_nrcqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ig48j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrcqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrcqd")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrcqd")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrcqd"]
+radius = 25.2632
+height = 76.4084
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_ig48j")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(65.401, 289.394)
+scale = Vector2(2.96256, 2.96256)
+sprite_frames = SubResource("SpriteFrames_ig48j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(66, 294)
+scale = Vector2(0.989583, 1.02083)
+shape = SubResource("CapsuleShape2D_nrcqd")
